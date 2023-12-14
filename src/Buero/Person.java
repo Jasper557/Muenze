@@ -1,7 +1,7 @@
 package Buero;
 
 public class Person {
-    private String name;
+    private final String name;
 
 
     public Person(String pName) {
