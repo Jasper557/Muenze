@@ -1,3 +1,5 @@
+package Muenzstapel;
+
 import linear.List;
 import linear.Stack;
 
@@ -35,8 +37,14 @@ public class MainApp {
                 case 10 -> stapel10Cent.push(newCoin);
                 case 20 -> stapel20Cent.push(newCoin);
                 case 50 -> stapel50Cent.push(newCoin);
-                case 100 -> stapel1Euro.push(newCoin);
-                case 200 -> stapel2Euro.push(newCoin);
+                case 100 -> {
+                    newCoin.setWert((newCoin.getWert() / 100));
+                    stapel1Euro.push(newCoin);
+                }
+                case 200 -> {
+                    newCoin.setWert((newCoin.getWert() / 100));
+                    stapel2Euro.push(newCoin);
+                }
             }
 
             muenzen.next();
@@ -71,9 +79,6 @@ public class MainApp {
         int randomWert = moeglicheWerte[randomIndex];
 
         Muenze.ART randomArt = (randomWert >= 100) ? Muenze.ART.EURO : Muenze.ART.CENT;
-        if (randomArt == Muenze.ART.EURO) {
-            randomWert /= 100;
-        }
 
         Muenze muenze = new Muenze(randomWert, randomArt);
         muenzen.append(muenze);

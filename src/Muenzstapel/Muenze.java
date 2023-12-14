@@ -1,3 +1,5 @@
+package Muenzstapel;
+
 public class Muenze {
     enum ART {CENT, EURO}
 
@@ -13,8 +15,17 @@ public class Muenze {
         return wert;
     }
 
+    public void setWert(int wert) {
+        this.wert = wert;
+    }
+
+
     public ART getArt() {
         return art;
+    }
+
+    public void setArt(ART art) {
+        this.art = art;
     }
 
     @Override
